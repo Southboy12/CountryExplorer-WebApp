@@ -5,7 +5,7 @@ import searchIcon from '../images/search.png'
 
 export default function Search() {
     return (
-        <div className='main--container'>
+        <div className='main--container search--body'>
             <div className='search--container'>
                 <input 
                     className='search--input'
@@ -20,7 +20,7 @@ export default function Search() {
                 />
             </div>
             <select className='dropdown'>
-                <option selected>Filter by Region</option>
+                <option>Filter by Region</option>
                 <option>Africa</option>
                 <option>America</option>
                 <option>Asia</option>
