@@ -26,7 +26,7 @@ export default function Search(props) {
                 id='filterRegion'
                 name='filterRegion'
                 value={props.formData.filterRegion}
-                onChange={props.handleChange}
+                onChange={props.handleFilter}
             >
                 <option>Filter by Region</option>
                 <option>Africa</option>
