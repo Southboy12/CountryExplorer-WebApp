@@ -9,32 +9,36 @@ import Main from './components/Main'
 export default function App() {
 
     const [countryData, setCountryData] = useState(null)
-    console.log(countryData);
+    const [formData, setFormData] = useState(
+        {
+            search: "",
+            filterRegion: ""
+        }
+    )
+
+    // console.log(`https://restcountries.com/v3.1/${formData.search ? "name/" : ""}${formData.search ? formData.search : "all" }`);
+    async function handleChange(event) {
+        const {name, value} = event.target
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            [name]: value
+        }))
+
+    }  
     
     useEffect(() => {
         async function getCountryData() {
-            const res = await fetch("https://restcountries.com/v3.1/all")
+            const res = await fetch(`https://restcountries.com/v3.1/${formData.search ? "name/" : ""}${formData.search ? formData.search : "all" }`)
             const data = await res.json()
             setCountryData(data)
         }
         getCountryData()
-    }, [])
-    
-
-  
-    // const world = countryData ? countryData.map((item, index) => {
-    //     return (
-    //         <Main
-    //             key={index} 
-    //             countryData={item}
-    //         />
-    //     )
-    // }) : null
+    }, [formData.search])
     
     return (
         <div>
             <Navbar />
-            <Search />
+            <Search handleChange={handleChange} formData={formData}/>
             <Main countryData={countryData} />          
         </div>
     )

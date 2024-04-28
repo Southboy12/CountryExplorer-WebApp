@@ -120,6 +120,7 @@ select > option {
     width: 20%;
     /* height: 100%; */
     margin-bottom: 2rem;
+    min-width: 338.391px;
 }
 
 .description > h3, h4{
