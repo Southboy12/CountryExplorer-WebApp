@@ -160,5 +160,38 @@ img {
     flex-wrap: wrap;
 }
 
+/* Mobile screen */
+@media (max-width: 475px) {
+    .search--body {
+        flex-direction: column;
+    }
 
+    .search--container {
+        width: 100%;
+    }
+
+    .search--input {
+        line-height: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .search--icon {
+        top: 15%;
+        right: 310px;
+        width: 25px;
+        height: 25px;
+    }
+
+    .dropdown {
+        height: 3rem;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col {
+        width: 100%;
+    }
+}
 
