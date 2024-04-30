@@ -1,10 +1,11 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 
 
 export default function CountryInfo({countryData}) {
    const { countryName } = useParams()
+   const navigate = useNavigate()
   
    if (!countryData) {
     return <div>Loading...</div>
@@ -33,11 +34,16 @@ export default function CountryInfo({countryData}) {
     : (
         <p className='no--border'>No border countries</p>
     )
+
+    function handleGoBack() {
+        navigate('/')
+    }
+
     return (
         <div className='country--container'>
-           <section className='country--btn'>
+            <section onClick={handleGoBack} className="country--btn" to="/">
                 <button>&larr; Back</button>
-           </section>
+            </section>
            <section className='country--row'>
                 <div className='country--flag__container'>
                     <img src={country.flags.png} alt={country.flags.alt} className='flag--img'/>
